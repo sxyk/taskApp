@@ -12,9 +12,13 @@
 		54EDFCA01F54469E0055DA00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54EDFC9E1F54469E0055DA00 /* Main.storyboard */; };
 		54EDFCA21F54469E0055DA00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54EDFCA11F54469E0055DA00 /* Assets.xcassets */; };
 		54EDFCA51F54469E0055DA00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54EDFCA31F54469E0055DA00 /* LaunchScreen.storyboard */; };
+		54EDFCB31F56DBC50055DA00 /* inputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EDFCB21F56DBC50055DA00 /* inputViewController.swift */; };
+		54EDFCB51F60326A0055DA00 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EDFCB41F60326A0055DA00 /* Task.swift */; };
+		9FCE00150D99BB4159501C91 /* Pods_taskapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE094959FCA7B625F3F201F /* Pods_taskapp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E45BEC1A88EBD6FCD2A26BA /* Pods-taskapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskapp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-taskapp/Pods-taskapp.debug.xcconfig"; sourceTree = "<group>"; };
 		54EDFC971F54469E0055DA00 /* taskapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taskapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54EDFC9A1F54469E0055DA00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54EDFC9C1F54469E0055DA00 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,10 @@
 		54EDFCA11F54469E0055DA00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54EDFCA41F54469E0055DA00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54EDFCA61F54469E0055DA00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54EDFCB21F56DBC50055DA00 /* inputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = inputViewController.swift; sourceTree = "<group>"; };
+		54EDFCB41F60326A0055DA00 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		AF8A6584C12E4E472F19ABED /* Pods-taskapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-taskapp/Pods-taskapp.release.xcconfig"; sourceTree = "<group>"; };
+		DEE094959FCA7B625F3F201F /* Pods_taskapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taskapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FCE00150D99BB4159501C91 /* Pods_taskapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1FF3744B6894E90C11AEC0F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DEE094959FCA7B625F3F201F /* Pods_taskapp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32FE2A43CFEF04044752D274 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4E45BEC1A88EBD6FCD2A26BA /* Pods-taskapp.debug.xcconfig */,
+				AF8A6584C12E4E472F19ABED /* Pods-taskapp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		54EDFC8E1F54469E0055DA00 = {
 			isa = PBXGroup;
 			children = (
 				54EDFC991F54469E0055DA00 /* taskapp */,
 				54EDFC981F54469E0055DA00 /* Products */,
+				32FE2A43CFEF04044752D274 /* Pods */,
+				1FF3744B6894E90C11AEC0F0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,7 +84,9 @@
 			children = (
 				54EDFC9A1F54469E0055DA00 /* AppDelegate.swift */,
 				54EDFC9C1F54469E0055DA00 /* ViewController.swift */,
+				54EDFCB41F60326A0055DA00 /* Task.swift */,
 				54EDFC9E1F54469E0055DA00 /* Main.storyboard */,
+				54EDFCB21F56DBC50055DA00 /* inputViewController.swift */,
 				54EDFCA11F54469E0055DA00 /* Assets.xcassets */,
 				54EDFCA31F54469E0055DA00 /* LaunchScreen.storyboard */,
 				54EDFCA61F54469E0055DA00 /* Info.plist */,
@@ -71,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54EDFCA91F54469E0055DA00 /* Build configuration list for PBXNativeTarget "taskapp" */;
 			buildPhases = (
+				D7CAF45E9032D3B00103D8AB /* [CP] Check Pods Manifest.lock */,
 				54EDFC931F54469E0055DA00 /* Sources */,
 				54EDFC941F54469E0055DA00 /* Frameworks */,
 				54EDFC951F54469E0055DA00 /* Resources */,
+				AC6C91C066C8EC73B28E37B7 /* [CP] Embed Pods Frameworks */,
+				E1D6B1ADD623DAF6F5F3FA3C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,13 +165,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AC6C91C066C8EC73B28E37B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-taskapp/Pods-taskapp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-taskapp/Pods-taskapp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7CAF45E9032D3B00103D8AB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-taskapp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1D6B1ADD623DAF6F5F3FA3C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-taskapp/Pods-taskapp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		54EDFC931F54469E0055DA00 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54EDFCB51F60326A0055DA00 /* Task.swift in Sources */,
 				54EDFC9D1F54469E0055DA00 /* ViewController.swift in Sources */,
 				54EDFC9B1F54469E0055DA00 /* AppDelegate.swift in Sources */,
+				54EDFCB31F56DBC50055DA00 /* inputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +350,7 @@
 		};
 		54EDFCAA1F54469E0055DA00 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E45BEC1A88EBD6FCD2A26BA /* Pods-taskapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J56SUVV4RW;
@@ -272,6 +364,7 @@
 		};
 		54EDFCAB1F54469E0055DA00 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF8A6584C12E4E472F19ABED /* Pods-taskapp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J56SUVV4RW;
@@ -302,6 +395,7 @@
 				54EDFCAB1F54469E0055DA00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
