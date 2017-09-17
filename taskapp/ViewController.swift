@@ -10,15 +10,18 @@ import UIKit
 import RealmSwift
 import UserNotifications
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var searchResults = [String]()
+    let contentsList = ["優先度高","優先度中","優先度低"]
     
-    @IBOutlet var searchBar: UISearchBar!
+
+    @IBOutlet var pickerView: UIPickerView!
     @IBOutlet var tableView: UITableView!
     
     //Realmインスタンスを取得する
     let realm = try! Realm()
+    
+    
     
     //DB内のタスクが格納されるリスト
     //日付近い順でソート　降順
@@ -28,10 +31,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+    
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        pickerView.selectRow(1, inComponent: 0, animated: true)
+        
         tableView.delegate = self
         tableView.dataSource = self
         
     }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -140,17 +150,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        searchBar.endEditing(true)
-//        
-//        //検索結果を空にする
-//        searchResults.removeAll()
-//        if (searchBar.text == "") {
-//            //検索結果が空の場合は全てを表示する
-//            searchResults = taskArray.contents
-//            
-//        }
-//    }(<#parameters#>) -> <#return type#> {
-//        <#function body#>
-//    }
+    //UIPickerViewDataSourceのプロトコル
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return contentsList.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    //UIPickerViewDelegateのプロトコル
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return contentsList[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print(contentsList[row])
+    }
+
+    
+    
+    
 }

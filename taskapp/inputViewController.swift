@@ -18,6 +18,8 @@ class inputViewController: UIViewController {
     @IBOutlet var categoryTextField: UITextField!
     
     
+    
+
     let realm = try! Realm()
     var task: Task!
     
