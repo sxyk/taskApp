@@ -71,22 +71,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: searchBarの設定
-//    private func setupSearchBar() {
-//        if let navigationBarFrame = navigationController? .navugationBar.bounds {
-//            let searchBarSetting = searchBar(frame: navigationBarFrame)
-//            searchBarSetting.deligate = self
-//            searchBarSetting.placeholder = "Search"
-//            searchBarSetting.showsCancelButton = true
-//            searchBarSetting.autocapitalizationType = UITextAutocapitalizationType.none
-//            searchBarSetting.key
-//            
-//        }
-//    }
-    
-    
-    // MARK: UITableViewDataSouceプロトコルのメソッド
-    //データの数（＝セルの数）を返すメソッド
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return taskArray.count
     }

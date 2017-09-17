@@ -10,28 +10,30 @@ import UIKit
 import RealmSwift
 import UserNotifications
 
-class inputViewController: UIViewController {
+class inputViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet var titleTextField: UITextField!
+    @IBOutlet var categoryPicker: UIPickerView!
     @IBOutlet var contentsTextView: UITextView!
     @IBOutlet var datePicker: UIDatePicker!
-    @IBOutlet var categoryTextField: UITextField!
     
-    
-    
-
+    let contentsList = ["優先度高","優先度中","優先度低"]
     let realm = try! Realm()
     var task: Task!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        categoryPicker.delegate = self
+        categoryPicker.dataSource = self
+        categoryPicker.selectRow(1, inComponent: 0, animated: true)
+        
+        
         //背景をタップしたらdismissKeyBoardメソッドを呼ぶように設定する
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector (dismissKeyBoard))
         self.view.addGestureRecognizer(tapGesture)
         
         titleTextField.text = task.title
-        categoryTextField.text = task.category
         contentsTextView.text = task.contents
         datePicker.date = task.date as Date
         // Do any additional setup after loading the view.
@@ -40,7 +42,6 @@ class inputViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         try! realm.write {
             self.task.title = self.titleTextField.text!
-            self.task.category = self.categoryTextField.text!
             self.task.contents = self.contentsTextView.text
             self.task.date = self.datePicker.date as NSDate
             self.realm.add(self.task, update: true)
@@ -83,7 +84,27 @@ class inputViewController: UIViewController {
         }
     }
     
+    //UIPickerViewDataSourceのプロトコル
     
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return contentsList.count
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    //UIPickerViewDelegateのプロトコル
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return contentsList[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print(contentsList[row])
+    }
+    
+
     
 
     func dismissKeyBoard() {

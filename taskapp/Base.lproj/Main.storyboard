@@ -147,15 +147,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sC2-lq-rbA">
-                                <rect key="frame" x="16" y="186" width="323" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="323" id="fJx-Cg-vAI"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Cf6-Wp-biP">
                                 <rect key="frame" x="0.0" y="407" width="375" height="120"/>
                                 <constraints>
@@ -184,6 +175,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MBw-SF-lMG">
+                                <rect key="frame" x="16" y="184" width="323" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -195,22 +190,19 @@
                             <constraint firstItem="dux-ED-QwT" firstAttribute="top" secondItem="9x8-fs-Bu0" secondAttribute="bottom" constant="103" id="Oq3-yl-gbw"/>
                             <constraint firstItem="Cf6-Wp-biP" firstAttribute="top" secondItem="lkh-Hu-X3p" secondAttribute="bottom" constant="20" id="QBC-br-znd"/>
                             <constraint firstItem="9x8-fs-Bu0" firstAttribute="leading" secondItem="TcI-ir-6n9" secondAttribute="leading" id="Zvu-Wb-SnY"/>
-                            <constraint firstItem="sC2-lq-rbA" firstAttribute="top" secondItem="4LJ-XP-l6K" secondAttribute="bottom" constant="10" id="dvc-qW-Xzz"/>
                             <constraint firstItem="TcI-ir-6n9" firstAttribute="top" secondItem="LuN-gQ-GPT" secondAttribute="bottom" constant="10" id="eAk-Hi-nRa"/>
                             <constraint firstItem="lkh-Hu-X3p" firstAttribute="trailing" secondItem="Rwz-WQ-F7r" secondAttribute="trailingMargin" id="g3x-F3-Onl"/>
                             <constraint firstItem="lkh-Hu-X3p" firstAttribute="top" secondItem="dux-ED-QwT" secondAttribute="bottom" constant="10" id="h8V-LJ-5Uy"/>
                             <constraint firstItem="TcI-ir-6n9" firstAttribute="leading" secondItem="Rwz-WQ-F7r" secondAttribute="leadingMargin" id="ifp-5b-8Xg"/>
                             <constraint firstItem="9x8-fs-Bu0" firstAttribute="leading" secondItem="TcI-ir-6n9" secondAttribute="leading" id="m1W-TO-7MF"/>
                             <constraint firstItem="lkh-Hu-X3p" firstAttribute="leading" secondItem="TcI-ir-6n9" secondAttribute="leading" id="pgL-fe-zZb"/>
-                            <constraint firstItem="dux-ED-QwT" firstAttribute="top" secondItem="sC2-lq-rbA" secondAttribute="bottom" constant="20" id="qQt-P5-CEu"/>
                             <constraint firstItem="9x8-fs-Bu0" firstAttribute="top" secondItem="TcI-ir-6n9" secondAttribute="bottom" constant="8" id="qrn-qX-2pl"/>
                             <constraint firstItem="dux-ED-QwT" firstAttribute="leading" secondItem="TcI-ir-6n9" secondAttribute="leading" id="udP-ph-zG4"/>
-                            <constraint firstItem="sC2-lq-rbA" firstAttribute="leading" secondItem="TcI-ir-6n9" secondAttribute="leading" id="w50-wB-3UV"/>
                             <constraint firstItem="4LJ-XP-l6K" firstAttribute="leading" secondItem="TcI-ir-6n9" secondAttribute="leading" id="zeD-ez-Tbw"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="categoryTextField" destination="sC2-lq-rbA" id="xL9-vb-UXm"/>
+                        <outlet property="categoryPicker" destination="MBw-SF-lMG" id="YSG-tP-nSe"/>
                         <outlet property="contentsTextView" destination="lkh-Hu-X3p" id="WZv-oc-dhl"/>
                         <outlet property="datePicker" destination="Cf6-Wp-biP" id="8SV-Br-vuD"/>
                         <outlet property="titleTextField" destination="9x8-fs-Bu0" id="0QQ-MB-XC0"/>
