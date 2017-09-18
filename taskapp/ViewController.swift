@@ -12,7 +12,7 @@ import UserNotifications
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let categoryList = ["優先度高","優先度中","優先度低"]
+    let categoryList = ["全て","優先度高","優先度中","優先度低"]
     
     //Realmインスタンスを取得する
     let realm = try! Realm()
@@ -34,7 +34,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
         pickerView.delegate = self
         pickerView.dataSource = self
-        pickerView.selectRow(1, inComponent: 0, animated: true)
+        pickerView.selectRow(0, inComponent: 0, animated: true)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -152,11 +152,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         print(categoryList[row])
         
         //データの取得
-        var choosenCategory = pickerView.selectedRow(inComponent: 0)
-        taskArray = try! Realm().objects(Task.self).filter("category = choosenCategory" ).sorted(byKeyPath: "date", ascending: false)
-        
-        //取ってきたデータをもとにタスクアレイを更新
-        
+        let chosenIndex = pickerView.selectedRow(inComponent: 0)
+        let categoryName = categoryList[chosenIndex]
+        //取ってきたデータをもとにタスクアレイを更新。カテゴリが全てなら全件表示
+        if chosenIndex == 0 {
+            taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: false)
+        }else{
+            taskArray = try! Realm().objects(Task.self).filter("category = '\(categoryName)'" ).sorted(byKeyPath: "date", ascending: false)
+
+        }
         //tableviewの更新
         tableView.reloadData()
     }

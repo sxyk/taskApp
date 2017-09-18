@@ -11,13 +11,14 @@ import RealmSwift
 import UserNotifications
 
 class inputViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
-
+    
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var categoryPicker: UIPickerView!
     @IBOutlet var contentsTextView: UITextView!
     @IBOutlet var datePicker: UIDatePicker!
     
-    let contentsList = ["優先度高","優先度中","優先度低"]
+    let categoryList = ["優先度高","優先度中","優先度低"]
+    
     let realm = try! Realm()
     var task: Task!
     
@@ -35,14 +36,19 @@ class inputViewController: UIViewController,UIPickerViewDataSource, UIPickerView
         
         titleTextField.text = task.title
         contentsTextView.text = task.contents
+        let categoryLow = categoryList.index(of: task.category)
+        if categoryLow != nil {
+            categoryPicker.selectRow(categoryLow!, inComponent: 0, animated: true)
+        }
         datePicker.date = task.date as Date
         // Do any additional setup after loading the view.
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        let categoryLow = categoryPicker.selectedRow(inComponent: 0)
         try! realm.write {
             self.task.title = self.titleTextField.text!
-            //self.task.category = self.categoryPicker.
+            self.task.category = self.categoryList[categoryLow]
             self.task.contents = self.contentsTextView.text
             self.task.date = self.datePicker.date as NSDate
             self.realm.add(self.task, update: true)
@@ -80,7 +86,7 @@ class inputViewController: UIViewController,UIPickerViewDataSource, UIPickerView
                 print("---------")
                 print("Request")
                 print("---------")
-            
+                
             }
         }
     }
@@ -88,7 +94,7 @@ class inputViewController: UIViewController,UIPickerViewDataSource, UIPickerView
     //UIPickerViewDataSourceのプロトコル
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return contentsList.count
+        return categoryList.count
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -98,17 +104,17 @@ class inputViewController: UIViewController,UIPickerViewDataSource, UIPickerView
     //UIPickerViewDelegateのプロトコル
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return contentsList[row]
+        return categoryList[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(contentsList[row])
-        //レルムに書きに行ってあげる
+        print(categoryList[row])
+        //Realmに書きに行く
     }
     
-
     
-
+    
+    
     func dismissKeyBoard() {
         view.endEditing(true)
     }
@@ -118,15 +124,15 @@ class inputViewController: UIViewController,UIPickerViewDataSource, UIPickerView
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
