@@ -12,21 +12,20 @@ import UserNotifications
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let contentsList = ["優先度高","優先度中","優先度低"]
-    
-
-    @IBOutlet var pickerView: UIPickerView!
-    @IBOutlet var tableView: UITableView!
+    let categoryList = ["優先度高","優先度中","優先度低"]
     
     //Realmインスタンスを取得する
     let realm = try! Realm()
-    
     
     
     //DB内のタスクが格納されるリスト
     //日付近い順でソート　降順
     //以降内容をアップデートするとリスト内は自動的に更新される
     var taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: false)
+
+    @IBOutlet var pickerView: UIPickerView!
+    @IBOutlet var tableView: UITableView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,9 +135,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     //UIPickerViewDataSourceのプロトコル
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return contentsList.count
+        return categoryList.count
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -146,13 +144,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     //UIPickerViewDelegateのプロトコル
-    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return contentsList[row]
+        return categoryList[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(contentsList[row])
+        print(categoryList[row])
+        
+        //データの取得
+        var choosenCategory = pickerView.selectedRow(inComponent: 0)
+        taskArray = try! Realm().objects(Task.self).filter("category = choosenCategory" ).sorted(byKeyPath: "date", ascending: false)
+        
+        //取ってきたデータをもとにタスクアレイを更新
+        
+        //tableviewの更新
+        tableView.reloadData()
     }
 
     

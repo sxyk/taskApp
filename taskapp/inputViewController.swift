@@ -42,6 +42,7 @@ class inputViewController: UIViewController,UIPickerViewDataSource, UIPickerView
     override func viewWillDisappear(_ animated: Bool) {
         try! realm.write {
             self.task.title = self.titleTextField.text!
+            //self.task.category = self.categoryPicker.
             self.task.contents = self.contentsTextView.text
             self.task.date = self.datePicker.date as NSDate
             self.realm.add(self.task, update: true)
@@ -102,6 +103,7 @@ class inputViewController: UIViewController,UIPickerViewDataSource, UIPickerView
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print(contentsList[row])
+        //レルムに書きに行ってあげる
     }
     
 
