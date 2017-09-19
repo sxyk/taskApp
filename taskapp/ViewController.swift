@@ -102,7 +102,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //セルが削除可能であることを伝えるメソッド
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath)-> UITableViewCellEditingStyle {
         return UITableViewCellEditingStyle.delete
-        
     }
     
     
@@ -164,8 +163,4 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //tableviewの更新
         tableView.reloadData()
     }
-
-    
-    
-    
 }
